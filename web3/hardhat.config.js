@@ -1,35 +1,17 @@
-require("@matterlabs/hardhat-zksync-solc");
-
 /** @type import('hardhat/config').HardhatUserConfig */
+const PRIVATE_KEY =
+  "2d041360b03fdde44bfc595f200e7fbf1f10ebce40abff4ac66c3a17c92f9ffe";
+const RPC_URL =
+  "https://polygon-amoy.g.alchemy.com/v2/3eRv_Ti5lTvq-TnLGYm2hgfAHLEZ9GEs";
+
 module.exports = {
-  zksolc: {
-    version: "1.3.9",
-    compilerSource: "binary",
-    settings: {
-      optimizer: {
-        enabled: true,
-      },
-    },
-  },
+  defaultNetwork: "polygon_amoy",
   networks: {
-    zksync_testnet: {
-      url: "https://zksync2-testnet.zksync.dev",
-      ethNetwork: "goerli",
-      chainId: 280,
-      zksync: true,
+    hardhat: {},
+    polygon_amoy: {
+      url: RPC_URL,
+      accounts: [`0x${PRIVATE_KEY}`],
     },
-    zksync_mainnet: {
-      url: "https://zksync2-mainnet.zksync.io/",
-      ethNetwork: "mainnet",
-      chainId: 324,
-      zksync: true,
-    },
-  },
-  paths: {
-    artifacts: "./artifacts-zk",
-    cache: "./cache-zk",
-    sources: "./contracts",
-    tests: "./test",
   },
   solidity: {
     version: "0.8.17",
