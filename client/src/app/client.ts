@@ -16,4 +16,6 @@ export const contract = getContract({
   address: "0x2F9E56de8B95B60082e1D4161C80177277Ef59D7",
 });
 
+export const chain = contract.chain;
+
 console.log(contract);
